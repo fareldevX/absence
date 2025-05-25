@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catatan Siswa Telat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <div>
+        <button id="btnAbout" onclick="aboutMe()" onmousemove="aboutMove()" onmouseout="aboutOut()">About Me</button>
+    </div> -->
+
+    <div id="container">
+      <form id="form">
+        <h1>Catatan siswa telat</h1>
+        <div class="group">
+          <label for="name">Nama</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Masukkan nama siswa"
+            required
+          />
+        </div>
+        <div class="group">
+          <select id="option">
+            <option value="push">Tambahkan</option>
+            <option value="pop">Hapus paling akhir</option>
+            <option value="join">Gabungkan</option>
+            <option value="unshift">Tambahkan paling awal</option>
+            <option value="shift">Hapus paling awal</option>
+            <option value="splice">Tambahkan nama tidak sesuai nomer</option>
+            <option value="slice">Ambil nama siswa di tengah</option>
+            <option value="sort">Urutkan nama siswa</option>
+            <option value="find">Cari nama siswa</option>
+            <option value="filter">Cari nama sesuai nama depan</option>
+          </select>
+        </div>
+        <div class="group">
+          <button type="submit" class="btn-submit" id="btn">Tambahkan</button>
+        </div>
+      </form>
+
+      <form id="form" class="form-right">
+        <h1>Daftar siswa telat</h1>
+        <div class="group">
+          <span>Catatan siswa yang telat</span>
+          <div class="result">
+            <ul id="myList"></ul>
+          </div>
+          <span id="resultLength">Total siswa : 0</span>
+        </div>
+      </form>
+    </div>
+
+    <div class="container-box" id="box">
+      <div class="text">
+        <h3>PERHATIAN!!</h3>
+        <span>- Isi inputan di bawah ini semuanya lalu klik oke</span>
+        <span
+          >- jika mengisi inputan hapus harus di akhir karena jika mengisinya
+          atau memasukanya nomer siswa yang tengah atau pertama maka nomer yang
+          di bawahnya akan dihapus</span
+        >
+      </div>
+      <div class="box">
+        <input
+          type="number"
+          placeholder="Nomer awal"
+          class="input-number1"
+          id="nameInput"
+        />
+        <input
+          type="number"
+          placeholder="Nomer yang ingin di hapus, jika tidak ada isi 0"
+          class="input-number2"
+          id="nameInput"
+        />
+        <input
+          type="text"
+          placeholder="Nama yang ingin di tambahkan"
+          class="input-number3"
+          id="nameInput"
+        />
+        <button onclick="send()">Oke</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
