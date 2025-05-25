@@ -92,6 +92,7 @@ document.getElementById("option").addEventListener("change", (e) => {
     case "splice":
       if (arr.length === 0) {
         alert("Tambahkan nama siswa teerlebih dahulu");
+        nameInput.disabled = false;
         nameInput.placeholder = "";
 
         btn.style.backgroundColor = "rgb(0, 85, 255)";
@@ -189,13 +190,33 @@ document.getElementById("form").addEventListener("submit", (e) => {
     case "slice":
       if (!nameInput.value.includes(",")) {
         alert("Harus memiliki koma untuk pemisah nomer");
-      } else {
-        const [inputValue1, inputValue2] = nameInput.value.split(",");
-        const result = arr.slice(inputValue1, inputValue2);
-        console.log(inputValue1);
-        console.log(inputValue2);
-        alert(result);
+        break;
       }
+
+      const [inputValue1Str, inputValue2Str] = nameInput.value.split(",");
+      const inputValue1 = parseInt(inputValue1Str.trim(), 10);
+      const inputValue2 = parseInt(inputValue2Str.trim(), 10);
+
+      if (isNaN(inputValue1) || isNaN(inputValue2)) {
+        alert("Input harus berupa nomer!!");
+        break;
+      }
+
+      if (
+        inputValue1 < 0 ||
+        inputValue2 > arr.length ||
+        inputValue1 >= inputValue2
+      ) {
+        alert(
+          `Nomer harus dalam rentang 0 hingga ${
+            arr.length - 1
+          } dan nomer awal harus kurang dari nomer akhir`
+        );
+        break;
+      }
+
+      const result = arr.slice(inputValue1, inputValue2);
+      alert(`Hasil : ${result}`);
       break;
     case "sort":
       if (arr.length === 0) {
@@ -255,7 +276,7 @@ document.getElementById("form").addEventListener("submit", (e) => {
           alert(`Hasil : (${result.join(") - (")})`);
         } else {
           alert(
-            `Tidak ada nama siswa yang huruf depanya ${nameInput.value.toUpperCase}`
+            `Tidak ada nama siswa yang huruf depanya ${nameInput.value.toUpperCase()}`
           );
         }
       }
@@ -298,7 +319,7 @@ function send() {
     data = {
       firsIndex: inputNumber1,
       removeIndex: inputNumber2,
-      elNew: inputNumber3,
+      elNew: inputNumber3.charAt(0).toUpperCase() + inputNumber3.slice(1),
     };
 
     document.getElementById("box").style.display = "none";
